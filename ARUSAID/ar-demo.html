@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Demo | ARUSAID - Experience Augmented Reality</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GLTFLoader - 3D models load karne ke liye -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+    <!-- OrbitControls - 3D model ko mouse se ghuma ne ke liye -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- AR Demo CSS -->
+    <link rel="stylesheet" href="css/ar-demo.css">
+</head>
+<body>
+
+    <!-- ============================================= -->
+    <!-- CUSTOM CURSOR -->
+    <!-- ============================================= -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- ============================================= -->
+    <!-- PRELOADER -->
+    <!-- ============================================= -->
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="loader-logo">ARUSAID</div>
+            <div class="loader-tagline">Initializing AR Experience...</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <div class="loader-percent">0%</div>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- NAVIGATION BAR -->
+    <!-- ============================================= -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <span class="logo-ar">AR</span><span class="logo-usaid">USAID</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link" data-text="Home">Home</a></li>
+                <li><a href="about.html" class="nav-link" data-text="About">About</a></li>
+                <li><a href="services.html" class="nav-link" data-text="Services">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link" data-text="Portfolio">Portfolio</a></li>
+                <li><a href="ar-demo.html" class="nav-link active" data-text="AR Demo">AR Demo</a></li>
+                <li><a href="contact.html" class="nav-link" data-text="Contact">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="nav-cta">
+                <span>Let's Build</span>
+                <i class="fas fa-rocket"></i>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-links">
+                <li><a href="index.html" class="mobile-link">Home</a></li>
+                <li><a href="about.html" class="mobile-link">About</a></li>
+                <li><a href="services.html" class="mobile-link">Services</a></li>
+                <li><a href="portfolio.html" class="mobile-link">Portfolio</a></li>
+                <li><a href="ar-demo.html" class="mobile-link active">AR Demo</a></li>
+                <li><a href="contact.html" class="mobile-link">Contact</a></li>
+            </ul>
+            <div class="mobile-social">
+                <!-- YAHAN APNE SOCIAL LINKS -->
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================= -->
+    <!-- AR HERO SECTION -->
+    <!-- ============================================= -->
+    <section id="ar-hero">
+        <canvas id="arHeroCanvas"></canvas>
+        <div class="ar-hero-particles" id="arHeroParticles"></div>
+
+        <div class="ar-hero-content">
+            <div class="hero-subtitle">
+                <span class="line-decoration"></span>
+                <span class="subtitle-text">Experience the Future</span>
+                <span class="line-decoration"></span>
+            </div>
+
+            <h1 class="ar-hero-title">
+                <span class="title-line">
+                    <span class="char-wrap" data-text="AR">AR</span>
+                </span>
+                <span class="title-line">
+                    <span class="char-wrap gold-text" data-text="EXPERIENCE">EXPERIENCE</span>
+                </span>
+            </h1>
+
+            <p class="ar-hero-desc">
+                Interact with 3D models, try AR in your camera, and experience 
+                the future of digital interaction — right here in your browser.
+            </p>
+
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">AR Demo</span>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse"><div class="wheel"></div></div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- 3D MODEL VIEWER SECTION -->
+    <!-- Mouse se 3D model ko ghumao, zoom karo -->
+    <!-- ============================================= -->
+    <section id="model-viewer-section" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Interactive</span>
+                <h2 class="section-title">
+                    3D Model <span class="gold-text">Viewer</span>
+                </h2>
+                <p class="section-desc">
+                    Drag to rotate, scroll to zoom, and explore 3D models 
+                    in real-time. This is how products will be viewed in the future.
+                </p>
+            </div>
+
+            <div class="model-viewer-container">
+                <!-- 3D Model Canvas - yahan Three.js scene render hoga -->
+                <div class="model-canvas-wrap">
+                    <canvas id="modelViewerCanvas"></canvas>
+
+                    <!-- Model loading indicator -->
+                    <div class="model-loading" id="modelLoading">
+                        <div class="model-loading-spinner"></div>
+                        <span>Loading 3D Model...</span>
+                    </div>
+
+                    <!-- Controls overlay -->
+                    <div class="model-controls-overlay">
+                        <div class="control-hint">
+                            <i class="fas fa-mouse-pointer"></i>
+                            <span>Drag to Rotate</span>
+                        </div>
+                        <div class="control-hint">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Scroll to Zoom</span>
+                        </div>
+                        <div class="control-hint">
+                            <i class="fas fa-hand-pointer"></i>
+                            <span>Right-click to Pan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Model selection sidebar -->
+                <div class="model-sidebar">
+                    <h3 class="sidebar-title">Select a Model</h3>
+
+                    <!-- Built-in 3D shapes -->
+                    <div class="model-options">
+                        <button class="model-option active" data-model="cube">
+                            <div class="mo-icon"><i class="fas fa-cube"></i></div>
+                            <div class="mo-info">
+                                <span class="mo-name">AR Cube</span>
+                                <span class="mo-desc">Interactive gold cube</span>
+                            </div>
+                        </button>
+
+                        <button class="model-option" data-model="sphere">
+                            <div class="mo-icon"><i class="fas fa-globe"></i></div>
+                            <div class="mo-info">
+                                <span class="mo-name">Globe Sphere</span>
+                                <span class="mo-desc">Wireframe globe</span>
+                            </div>
+                        </button>
+
+                        <button class="model-option" data-model="torus">
+                            <div class="mo-icon"><i class="fas fa-ring"></i></div>
+                            <div class="mo-info">
+                                <span class="mo-name">Torus Ring</span>
+                                <span class="mo-desc">Rotating ring shape</span>
+                            </div>
+                        </button>
+
+                        <button class="model-option" data-model="diamond">
+                            <div class="mo-icon"><i class="fas fa-gem"></i></div>
+                            <div class="mo-info">
+                                <span class="mo-name">Diamond</span>
+                                <span class="mo-desc">Octahedron gem</span>
+                            </div>
+                        </button>
+
+                        <button class="model-option" data-model="pyramid">
+                            <div class="mo-icon"><i class="fas fa-mountain"></i></div>
+                            <div class="mo-info">
+                                <span class="mo-name">Pyramid</span>
+                                <span class="mo-desc">Tetrahedron shape</span>
+                            </div>
+                        </button>
+
+                        <button class="model-option" data-model="knot">
+                            <div class="mo-icon"><i class="fas fa-infinity"></i></div>
+                            <div class="mo-info">
+                                <span class="mo-name">Torus Knot</span>
+                                <span class="mo-desc">Complex twisted shape</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Custom GLB model upload -->
+                    <div class="custom-model-section">
+                        <h4 class="custom-title">Load Custom Model</h4>
+                        <p class="custom-desc">
+                            Upload your own .GLB or .GLTF 3D model file 
+                            to view it here.
+                        </p>
+                        <label class="upload-btn" for="modelUpload">
+                            <i class="fas fa-upload"></i>
+                            <span>Upload .GLB File</span>
+                        </label>
+                        <input type="file" id="modelUpload" accept=".glb,.gltf" hidden>
+                        <div class="upload-status" id="uploadStatus"></div>
+
+                        <!-- Ya URL se load karo -->
+                        <div class="url-input-wrap">
+                            <input type="text" id="modelUrlInput" 
+                                   placeholder="Or paste .GLB URL here..."
+                                   class="url-input">
+                            <button class="url-load-btn" id="loadUrlBtn">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Model controls -->
+                    <div class="model-settings">
+                        <h4 class="settings-title">Settings</h4>
+
+                        <!-- Auto rotate toggle -->
+                        <div class="setting-item">
+                            <span class="setting-label">Auto Rotate</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="autoRotateToggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <!-- Wireframe toggle -->
+                        <div class="setting-item">
+                            <span class="setting-label">Wireframe</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="wireframeToggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <!-- Color picker -->
+                        <div class="setting-item">
+                            <span class="setting-label">Model Color</span>
+                            <div class="color-options">
+                                <button class="color-btn active" data-color="#D4A017" 
+                                        style="background: #D4A017;"></button>
+                                <button class="color-btn" data-color="#8B5CF6" 
+                                        style="background: #8B5CF6;"></button>
+                                <button class="color-btn" data-color="#22C55E" 
+                                        style="background: #22C55E;"></button>
+                                <button class="color-btn" data-color="#EF4444" 
+                                        style="background: #EF4444;"></button>
+                                <button class="color-btn" data-color="#3B82F6" 
+                                        style="background: #3B82F6;"></button>
+                                <button class="color-btn" data-color="#FFFFFF" 
+                                        style="background: #FFFFFF;"></button>
+                            </div>
+                        </div>
+
+                        <!-- Background toggle -->
+                        <div class="setting-item">
+                            <span class="setting-label">Dark Background</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="bgToggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Fullscreen button -->
+                    <button class="fullscreen-btn" id="fullscreenBtn">
+                        <i class="fas fa-expand"></i>
+                        <span>Fullscreen View</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- CAMERA AR SECTION - Phone camera se AR -->
+    <!-- ============================================= -->
+    <section id="camera-ar-section" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Augmented Reality</span>
+                <h2 class="section-title">
+                    Camera <span class="gold-text">AR Mode</span>
+                </h2>
+                <p class="section-desc">
+                    Open your camera and place 3D objects in your real world. 
+                    Experience augmented reality directly in your browser.
+                </p>
+            </div>
+
+            <div class="camera-ar-container">
+                <!-- AR Preview area -->
+                <div class="ar-preview">
+                    <div class="ar-preview-content">
+                        <!-- Camera feed yahan aayegi -->
+                        <video id="arVideo" autoplay playsinline></video>
+                        <canvas id="arCanvas"></canvas>
+
+                        <!-- AR object overlay -->
+                        <div class="ar-object-overlay" id="arObjectOverlay">
+                            <canvas id="arObjectCanvas"></canvas>
+                        </div>
+
+                        <!-- AR UI controls -->
+                        <div class="ar-ui-controls" id="arUIControls" style="display:none;">
+                            <button class="ar-ui-btn" id="arCaptureBtn">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                            <button class="ar-ui-btn" id="arSwitchBtn">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <button class="ar-ui-btn ar-close-btn" id="arCloseBtn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <!-- Placeholder jab camera off ho -->
+                        <div class="ar-placeholder" id="arPlaceholder">
+                            <div class="ar-ph-icon">
+                                <i class="fas fa-camera"></i>
+                                <div class="ar-ph-ring"></div>
+                            </div>
+                            <h3 class="ar-ph-title">AR Camera Mode</h3>
+                            <p class="ar-ph-desc">
+                                Click the button below to open your camera and 
+                                experience AR in your environment.
+                            </p>
+                            <button class="ar-start-btn" id="arStartBtn">
+                                <i class="fas fa-vr-cardboard"></i>
+                                <span>Start AR Experience</span>
+                            </button>
+                            <p class="ar-ph-note">
+                                <i class="fas fa-info-circle"></i>
+                                Camera permission required. Works best on mobile.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AR Object selector -->
+                <div class="ar-objects-panel">
+                    <h3 class="panel-title">Choose AR Object</h3>
+                    <p class="panel-desc">Select a 3D object to place in AR</p>
+
+                    <div class="ar-objects-grid">
+                        <button class="ar-obj-btn active" data-shape="cube">
+                            <div class="ar-obj-preview">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <span>Cube</span>
+                        </button>
+
+                        <button class="ar-obj-btn" data-shape="sphere">
+                            <div class="ar-obj-preview">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <span>Sphere</span>
+                        </button>
+
+                        <button class="ar-obj-btn" data-shape="diamond">
+                            <div class="ar-obj-preview">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <span>Diamond</span>
+                        </button>
+
+                        <button class="ar-obj-btn" data-shape="ring">
+                            <div class="ar-obj-preview">
+                                <i class="fas fa-ring"></i>
+                            </div>
+                            <span>Ring</span>
+                        </button>
+
+                        <button class="ar-obj-btn" data-shape="cylinder">
+                            <div class="ar-obj-preview">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <span>Cylinder</span>
+                        </button>
+
+                        <button class="ar-obj-btn" data-shape="cone">
+                            <div class="ar-obj-preview">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <span>Cone</span>
+                        </button>
+                    </div>
+
+                    <!-- AR color selector -->
+                    <div class="ar-color-section">
+                        <h4>Object Color</h4>
+                        <div class="ar-color-options">
+                            <button class="ar-color-btn active" data-arcolor="#D4A017" 
+                                    style="background:#D4A017;"></button>
+                            <button class="ar-color-btn" data-arcolor="#8B5CF6" 
+                                    style="background:#8B5CF6;"></button>
+                            <button class="ar-color-btn" data-arcolor="#22C55E" 
+                                    style="background:#22C55E;"></button>
+                            <button class="ar-color-btn" data-arcolor="#EF4444" 
+                                    style="background:#EF4444;"></button>
+                            <button class="ar-color-btn" data-arcolor="#3B82F6" 
+                                    style="background:#3B82F6;"></button>
+                            <button class="ar-color-btn" data-arcolor="#EC4899" 
+                                    style="background:#EC4899;"></button>
+                        </div>
+                    </div>
+
+                    <!-- AR Size slider -->
+                    <div class="ar-size-section">
+                        <h4>Object Size</h4>
+                        <input type="range" id="arSizeSlider" min="0.5" max="3" 
+                               step="0.1" value="1" class="ar-slider">
+                        <div class="ar-size-labels">
+                            <span>Small</span>
+                            <span>Large</span>
+                        </div>
+                    </div>
+
+                    <!-- AR info -->
+                    <div class="ar-info-box">
+                        <div class="ar-info-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="ar-info-text">
+                            <h4>How it Works</h4>
+                            <p>
+                                1. Click "Start AR Experience"<br>
+                                2. Allow camera access<br>
+                                3. Point camera at a flat surface<br>
+                                4. The 3D object appears in AR<br>
+                                5. Move phone to see it from different angles
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- INTERACTIVE 3D SHOWCASE -->
+    <!-- Scroll pe 3D objects animate hote hain -->
+    <!-- ============================================= -->
+    <section id="showcase-section" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Showcase</span>
+                <h2 class="section-title">
+                    3D <span class="gold-text">Showcase</span>
+                </h2>
+                <p class="section-desc">
+                    Interactive 3D objects demonstrating what's possible 
+                    with ARUSAID's augmented reality solutions.
+                </p>
+            </div>
+
+            <div class="showcase-grid">
+                <!-- Showcase Item 1 -->
+                <div class="showcase-item">
+                    <div class="showcase-canvas-wrap">
+                        <canvas class="showcase-canvas" data-shape="rotating-cube"></canvas>
+                    </div>
+                    <div class="showcase-info">
+                        <h3>Product Visualization</h3>
+                        <p>See products in 3D before buying. Rotate, zoom, and inspect every detail.</p>
+                    </div>
+                </div>
+
+                <!-- Showcase Item 2 -->
+                <div class="showcase-item">
+                    <div class="showcase-canvas-wrap">
+                        <canvas class="showcase-canvas" data-shape="floating-sphere"></canvas>
+                    </div>
+                    <div class="showcase-info">
+                        <h3>Virtual Try-On</h3>
+                        <p>Try clothes, glasses, or accessories virtually before purchasing.</p>
+                    </div>
+                </div>
+
+                <!-- Showcase Item 3 -->
+                <div class="showcase-item">
+                    <div class="showcase-canvas-wrap">
+                        <canvas class="showcase-canvas" data-shape="morphing-torus"></canvas>
+                    </div>
+                    <div class="showcase-info">
+                        <h3>Interactive Menus</h3>
+                        <p>See food in 3D AR on your table before ordering at restaurants.</p>
+                    </div>
+                </div>
+
+                <!-- Showcase Item 4 -->
+                <div class="showcase-item">
+                    <div class="showcase-canvas-wrap">
+                        <canvas class="showcase-canvas" data-shape="particle-sphere"></canvas>
+                    </div>
+                    <div class="showcase-info">
+                        <h3>Virtual Stores</h3>
+                        <p>Walk through virtual 3D stores and shop from anywhere in the world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- AR USE CASES - Kahan kahan AR use hota hai -->
+    <!-- ============================================= -->
+    <section id="usecases-section" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Applications</span>
+                <h2 class="section-title">
+                    AR <span class="gold-text">Use Cases</span>
+                </h2>
+                <p class="section-desc">
+                    How businesses are using Augmented Reality to 
+                    transform customer experiences.
+                </p>
+            </div>
+
+            <div class="usecases-grid">
+                <div class="usecase-card">
+                    <div class="uc-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Restaurants</h3>
+                    <p>AR menus that show 3D food on the table. Customers see dishes before ordering.</p>
+                </div>
+                <div class="usecase-card">
+                    <div class="uc-icon"><i class="fas fa-tshirt"></i></div>
+                    <h3>Fashion</h3>
+                    <p>Virtual try-on for clothes, shoes, and accessories. No fitting rooms needed.</p>
+                </div>
+                <div class="usecase-card">
+                    <div class="uc-icon"><i class="fas fa-couch"></i></div>
+                    <h3>Furniture</h3>
+                    <p>Place furniture in your room using AR to see how it fits before buying.</p>
+                </div>
+                <div class="usecase-card">
+                    <div class="uc-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <h3>E-Commerce</h3>
+                    <p>3D product views and AR try-before-buy for online shopping.</p>
+                </div>
+                <div class="usecase-card">
+                    <div class="uc-icon"><i class="fas fa-building"></i></div>
+                    <h3>Real Estate</h3>
+                    <p>Virtual property tours and AR floor plans for real estate listings.</p>
+                </div>
+                <div class="usecase-card">
+                    <div class="uc-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Education</h3>
+                    <p>Interactive 3D learning experiences. Bring textbooks to life with AR.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- CTA SECTION -->
+    <!-- ============================================= -->
+    <section id="cta-section" class="section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">
+                    Want AR for
+                    <span class="gold-text">Your Business</span>?
+                </h2>
+                <p class="cta-desc">
+                    Let's bring augmented reality to your customers. 
+                    Contact us to discuss your AR project.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">
+                        <span class="btn-text">Start AR Project</span>
+                        <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                        <div class="btn-glow"></div>
+                    </a>
+                    <a href="services.html" class="btn btn-secondary btn-large">
+                        <span class="btn-text">Our AR Services</span>
+                        <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- FOOTER -->
+    <!-- ============================================= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-ar">AR</span><span class="logo-usaid">USAID</span>
+                    </div>
+                    <p class="footer-desc">Pioneering the future of Augmented Reality.</p>
+                    <div class="footer-social">
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="ar-demo.html">AR Demo</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">AR Solutions</a></li>
+                        <li><a href="services.html">3D Store Builder</a></li>
+                        <li><a href="services.html">3D Modeling</a></li>
+                        <li><a href="services.html">Restaurant Websites</a></li>
+                        <li><a href="services.html">Digital Menu</a></li>
+                        <li><a href="services.html">Shopify Setup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Get in Touch</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-envelope"></i><a href="mailto:arusaid@gmail.com">arusaid@gmail.com</a></li>
+                        <li><i class="fas fa-phone"></i><a href="tel:+92XXXXXXXXXX">+92 XXX XXXXXXX</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i><span>Pakistan</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-line"></div>
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 ARUSAID. All Rights Reserved.</p>
+                    <p>Crafted with <i class="fas fa-heart gold-text"></i> by Muhammad Usaid</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/ar-demo.js"></script>
+
+</body>
+</html>

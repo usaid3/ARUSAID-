@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | ARUSAID - Our Work</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Portfolio page CSS -->
+    <link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body>
+
+    <!-- ============================================= -->
+    <!-- CUSTOM CURSOR -->
+    <!-- ============================================= -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- ============================================= -->
+    <!-- PRELOADER -->
+    <!-- ============================================= -->
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="loader-logo">ARUSAID</div>
+            <div class="loader-tagline">Loading Portfolio...</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <div class="loader-percent">0%</div>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- NAVIGATION BAR -->
+    <!-- ============================================= -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <span class="logo-ar">AR</span><span class="logo-usaid">USAID</span>
+                </a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link" data-text="Home">Home</a></li>
+                <li><a href="about.html" class="nav-link" data-text="About">About</a></li>
+                <li><a href="services.html" class="nav-link" data-text="Services">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link active" data-text="Portfolio">Portfolio</a></li>
+                <li><a href="ar-demo.html" class="nav-link" data-text="AR Demo">AR Demo</a></li>
+                <li><a href="contact.html" class="nav-link" data-text="Contact">Contact</a></li>
+            </ul>
+
+            <a href="contact.html" class="nav-cta">
+                <span>Let's Build</span>
+                <i class="fas fa-rocket"></i>
+            </a>
+
+            <div class="hamburger" id="hamburger">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-links">
+                <li><a href="index.html" class="mobile-link">Home</a></li>
+                <li><a href="about.html" class="mobile-link">About</a></li>
+                <li><a href="services.html" class="mobile-link">Services</a></li>
+                <li><a href="portfolio.html" class="mobile-link active">Portfolio</a></li>
+                <li><a href="ar-demo.html" class="mobile-link">AR Demo</a></li>
+                <li><a href="contact.html" class="mobile-link">Contact</a></li>
+            </ul>
+            <div class="mobile-social">
+                <!-- YAHAN APNE SOCIAL MEDIA LINKS PASTE KARO -->
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================= -->
+    <!-- PORTFOLIO HERO -->
+    <!-- ============================================= -->
+    <section id="portfolio-hero">
+        <canvas id="portfolioHeroCanvas"></canvas>
+        <div class="portfolio-particles" id="portfolioParticles"></div>
+
+        <div class="portfolio-hero-content">
+            <div class="hero-subtitle">
+                <span class="line-decoration"></span>
+                <span class="subtitle-text">Our Work</span>
+                <span class="line-decoration"></span>
+            </div>
+
+            <h1 class="portfolio-hero-title">
+                <span class="title-line">
+                    <span class="char-wrap" data-text="OUR">OUR</span>
+                </span>
+                <span class="title-line">
+                    <span class="char-wrap gold-text" data-text="PORTFOLIO">PORTFOLIO</span>
+                </span>
+            </h1>
+
+            <p class="portfolio-hero-desc">
+                Every project tells a story. Every pixel has a purpose.
+                Explore our journey of digital transformation.
+            </p>
+
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Portfolio</span>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse"><div class="wheel"></div></div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- PORTFOLIO STATS -->
+    <!-- ============================================= -->
+    <section id="portfolio-stats" class="section-small">
+        <div class="container">
+            <div class="port-stats-grid">
+                <div class="port-stat">
+                    <span class="port-stat-num" data-count="11">0</span>
+                    <span class="port-stat-plus">+</span>
+                    <span class="port-stat-label">Digital Menus</span>
+                </div>
+                <div class="port-stat-divider"></div>
+                <div class="port-stat">
+                    <span class="port-stat-num" data-count="50">0</span>
+                    <span class="port-stat-plus">+</span>
+                    <span class="port-stat-label">Projects Done</span>
+                </div>
+                <div class="port-stat-divider"></div>
+                <div class="port-stat">
+                    <span class="port-stat-num" data-count="30">0</span>
+                    <span class="port-stat-plus">+</span>
+                    <span class="port-stat-label">Happy Clients</span>
+                </div>
+                <div class="port-stat-divider"></div>
+                <div class="port-stat">
+                    <span class="port-stat-num" data-count="5">0</span>
+                    <span class="port-stat-plus">+</span>
+                    <span class="port-stat-label">Industries</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- FEATURED PROJECTS - Bade featured projects -->
+    <!-- ============================================= -->
+    <section id="featured-projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Featured</span>
+                <h2 class="section-title">
+                    Featured <span class="gold-text">Projects</span>
+                </h2>
+                <p class="section-desc">
+                    Our best work that showcases our capabilities 
+                    and commitment to excellence.
+                </p>
+            </div>
+
+            <!-- Featured Project 1 - Big showcase -->
+            <div class="featured-project">
+                <div class="fp-visual">
+                    <!-- YAHAN APNE BEST PROJECT KA SCREENSHOT DALO -->
+                    <!-- assets/images/featured1.jpg naam se save karo -->
+                    <img src="assets/images/featured1.jpg" alt="Featured Project 1">
+                    <div class="fp-overlay">
+                        <div class="fp-play-btn">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="fp-badge">
+                        <i class="fas fa-star"></i>
+                        Featured
+                    </div>
+                </div>
+                <div class="fp-info">
+                    <div class="fp-category">
+                        <span class="fp-cat-dot"></span>
+                        Restaurant Digital Menu
+                    </div>
+                    <h3 class="fp-title">Complete Digital Menu System</h3>
+                    <p class="fp-desc">
+                        A complete QR-based digital menu system for a premium restaurant. 
+                        Features include category-wise browsing, high-quality food images, 
+                        price management, and a beautiful responsive design that works 
+                        flawlessly on all devices.
+                    </p>
+                    <div class="fp-tech-stack">
+                        <span class="fp-tech">HTML5</span>
+                        <span class="fp-tech">CSS3</span>
+                        <span class="fp-tech">JavaScript</span>
+                        <span class="fp-tech">QR System</span>
+                        <span class="fp-tech">Responsive</span>
+                    </div>
+                    <div class="fp-links">
+                        <!-- YAHAN APNE PROJECT KA LIVE LINK PASTE KARO -->
+                        <a href="#" target="_blank" class="fp-link-btn fp-link-primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>View Live</span>
+                        </a>
+                        <!-- YAHAN GITHUB REPO KA LINK PASTE KARO (agar hai) -->
+                        <a href="#" target="_blank" class="fp-link-btn fp-link-secondary">
+                            <i class="fab fa-github"></i>
+                            <span>Source Code</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Project 2 -->
+            <div class="featured-project fp-reverse">
+                <div class="fp-visual">
+                    <!-- YAHAN APNE DUSRE BEST PROJECT KA SCREENSHOT DALO -->
+                    <img src="assets/images/featured2.jpg" alt="Featured Project 2">
+                    <div class="fp-overlay">
+                        <div class="fp-play-btn">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="fp-badge badge-purple">
+                        <i class="fas fa-crown"></i>
+                        Premium
+                    </div>
+                </div>
+                <div class="fp-info">
+                    <div class="fp-category">
+                        <span class="fp-cat-dot dot-purple"></span>
+                        Restaurant Website
+                    </div>
+                    <h3 class="fp-title">Full Restaurant Website</h3>
+                    <p class="fp-desc">
+                        A complete restaurant website with modern design, online menu, 
+                        about section, gallery, contact form, and Google Maps integration. 
+                        Designed to attract customers and boost online presence with 
+                        stunning visuals and smooth animations.
+                    </p>
+                    <div class="fp-tech-stack">
+                        <span class="fp-tech">HTML5</span>
+                        <span class="fp-tech">CSS3</span>
+                        <span class="fp-tech">JavaScript</span>
+                        <span class="fp-tech">Google Maps</span>
+                        <span class="fp-tech">SEO</span>
+                    </div>
+                    <div class="fp-links">
+                        <!-- YAHAN LIVE LINK PASTE KARO -->
+                        <a href="#" target="_blank" class="fp-link-btn fp-link-primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>View Live</span>
+                        </a>
+                        <a href="#" target="_blank" class="fp-link-btn fp-link-secondary">
+                            <i class="fab fa-github"></i>
+                            <span>Source Code</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- ALL PROJECTS GRID - Sab projects -->
+    <!-- ============================================= -->
+    <section id="all-projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">All Work</span>
+                <h2 class="section-title">
+                    Project <span class="gold-text">Gallery</span>
+                </h2>
+                <p class="section-desc">
+                    Browse through all our completed projects. 
+                    Click any project for details.
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="portfolio-filters">
+                <button class="pf-btn active" data-filter="all">
+                    <span>All Projects</span>
+                    <span class="pf-count">11</span>
+                </button>
+                <button class="pf-btn" data-filter="restaurant">
+                    <span>Restaurant</span>
+                    <span class="pf-count">5</span>
+                </button>
+                <button class="pf-btn" data-filter="menu">
+                    <span>Digital Menu</span>
+                    <span class="pf-count">4</span>
+                </button>
+                <button class="pf-btn" data-filter="web">
+                    <span>Web Design</span>
+                    <span class="pf-count">3</span>
+                </button>
+                <button class="pf-btn" data-filter="brand">
+                    <span>Branding</span>
+                    <span class="pf-count">2</span>
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid" id="projectsGrid">
+
+                <!-- PROJECT 1 -->
+                <!-- YAHAN APNE PROJECT KA SCREENSHOT DALO: assets/images/project1.jpg -->
+                <div class="project-card" data-category="menu" data-index="0">
+                    <div class="pc-image">
+                        <img src="assets/images/project1.jpg" alt="Digital Menu Project 1">
+                        <div class="pc-overlay">
+                            <div class="pc-actions">
+                                <button class="pc-action-btn pc-view" data-index="0">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <!-- YAHAN LIVE LINK -->
+                                <a href="#" target="_blank" class="pc-action-btn pc-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pc-info">
+                        <span class="pc-category">Digital Menu</span>
+                        <h3 class="pc-title">Restaurant Menu System 1</h3>
+                        <p class="pc-desc">QR-based digital menu with beautiful UI</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2 -->
+                <div class="project-card" data-category="menu" data-index="1">
+                    <div class="pc-image">
+                        <img src="assets/images/project2.jpg" alt="Digital Menu Project 2">
+                        <div class="pc-overlay">
+                            <div class="pc-actions">
+                                <button class="pc-action-btn pc-view" data-index="1">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="#" target="_blank" class="pc-action-btn pc-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pc-info">
+                        <span class="pc-category">Digital Menu</span>
+                        <h3 class="pc-title">Restaurant Menu System 2</h3>
+                        <p class="pc-desc">Interactive menu with categories</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 3 -->
+                <div class="project-card" data-category="restaurant" data-index="2">
+                    <div class="pc-image">
+                        <img src="assets/images/project3.jpg" alt="Restaurant Website">
+                        <div class="pc-overlay">
+                            <div class="pc-actions">
+                                <button class="pc-action-btn pc-view" data-index="2">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="#" target="_blank" class="pc-action-btn pc-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pc-info">
+                        <span class="pc-category">Restaurant</span>
+                        <h3 class="pc-title">Premium Restaurant Site</h3>
+                        <p class="pc-desc">Full website with online presence</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 4 -->
+                <div class="project-card" data-category="menu" data-index="3">
+                    <div class="pc-image">
+                        <img src="assets/images/project4.jpg" alt="Digital Menu 3">
+                        <div class="pc-overlay">
+                            <div class="pc-actions">
+                                <button class="pc-action-btn pc-view" data-index="3">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="#" target="_blank" class="pc-action-btn pc-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pc-info">
+                        <span class="pc-category">Digital Menu</span>
+                        <h3 class="pc-title">Cafe Digital Menu</h3>
+                        <p class="pc-desc">Minimalist menu for a trendy cafe</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 5 -->
+                <div class="project-card" data-category="restaurant" data-index="4">
+                    <div class="pc-image">
+                        <img src="assets/images/project5.jpg" alt="Restaurant Website 2">
+                        <div class="pc-overlay">
+                            <div class="pc-actions">
+                                <button class="pc-action-btn pc-view" data-index="4">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="#" target="_blank" class="pc-action-btn pc-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pc-info">
+                        <span class="pc-category">Restaurant</span>
+                        <h3 class="pc-title">Fast Food Chain Website</h3>
+                        <p class="pc-desc">Multi-branch restaurant website</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 6 -->
+                <div class="project-card" data-category="web" data-index="5">
+                    <div class="pc-image">
+                        <img src="assets/images/project6.jpg" alt="Web Design Project">
+                        <div class="pc-overlay">
+                            <div class="pc-actions">
+                                <button class="pc-action-btn pc-view" data-index="5">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="#" target="_blank" class="pc-action-btn pc-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pc-info">
+                        <span class="pc-category">Web Design</span>
+                        <h3 class="pc-title">Business Landing Page</h3>
+                        <p class="pc-desc">Modern landing page with animations</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 7 -->
+                <div class="project-card" data-category="restaurant" data-index="6">
+                    <div class="pc-image">
+                        <img src="assets/images/project7.jpg" alt="Restaurant 3">
+                        <div class="pc-overlay">
+                            <div class="pc-actions">
+                                <button class="pc-action-btn pc-view" data-index="6">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="#" target="_blank" class="pc-action-btn pc-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pc-info">
+                        <span class="pc-category">Restaurant</span>
+                        <h3 class="pc-title">Fine Dining Website</h3>
+                        <p class="pc-desc">Elegant website for fine dining</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 8 -->
+                <div class="project-card" data-category="brand" data-index="7">
+                    <div class="pc-image">
+                        <img src="assets/images/project8.jpg" alt="Brand Identity">
+                        <div class="pc-overlay">
+                            <div class="pc-actions">
+                                <button class="pc-action-btn pc-view" data-index="7">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="#" target="_blank" class="pc-action-btn pc-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pc-info">
+                        <span class="pc-category">Branding</span>
+                        <h3 class="pc-title">Brand Identity Design</h3>
+                        <p class="pc-desc">Complete brand from scratch</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 9 -->
+                <div class="project-card" data-category="menu" data-index="8">
+                    <div class="pc-image">
+                        <img src="assets/images/project9.jpg" alt="Digital Menu 4">
+                        <div class="pc-overlay">
+                            <div class="pc-actions">
+                                <button class="pc-action-btn pc-view" data-index="8">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="#" target="_blank" class="pc-action-btn pc-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pc-info">
+                        <span class="pc-category">Digital Menu</span>
+                        <h3 class="pc-title">BBQ Restaurant Menu</h3>
+                        <p class="pc-desc">Themed digital menu design</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 10 -->
+                <div class="project-card" data-category="web" data-index="9">
+                    <div class="pc-image">
+                        <img src="assets/images/project10.jpg" alt="Web Project 2">
+                        <div class="pc-overlay">
+                            <div class="pc-actions">
+                                <button class="pc-action-btn pc-view" data-index="9">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="#" target="_blank" class="pc-action-btn pc-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pc-info">
+                        <span class="pc-category">Web Design</span>
+                        <h3 class="pc-title">E-Commerce Concept</h3>
+                        <p class="pc-desc">Shopify store with custom theme</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 11 -->
+                <div class="project-card" data-category="restaurant" data-index="10">
+                    <div class="pc-image">
+                        <img src="assets/images/project11.jpg" alt="Restaurant 5">
+                        <div class="pc-overlay">
+                            <div class="pc-actions">
+                                <button class="pc-action-btn pc-view" data-index="10">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="#" target="_blank" class="pc-action-btn pc-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pc-info">
+                        <span class="pc-category">Restaurant</span>
+                        <h3 class="pc-title">Desi Restaurant Website</h3>
+                        <p class="pc-desc">Traditional restaurant online presence</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 12 - Brand -->
+                <div class="project-card" data-category="brand" data-index="11">
+                    <div class="pc-image">
+                        <img src="assets/images/project12.jpg" alt="Brand Project 2">
+                        <div class="pc-overlay">
+                            <div class="pc-actions">
+                                <button class="pc-action-btn pc-view" data-index="11">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="#" target="_blank" class="pc-action-btn pc-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pc-info">
+                        <span class="pc-category">Branding</span>
+                        <h3 class="pc-title">Logo & Identity Package</h3>
+                        <p class="pc-desc">Full brand identity creation</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- PROJECT DETAIL MODAL - Click pe detail dikhega -->
+    <!-- ============================================= -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-container">
+            <!-- Close button -->
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <!-- Image section -->
+                <div class="modal-image">
+                    <img src="" alt="" id="modalImage">
+                </div>
+
+                <!-- Info section -->
+                <div class="modal-info">
+                    <span class="modal-category" id="modalCategory"></span>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <p class="modal-desc" id="modalDesc"></p>
+
+                    <div class="modal-details">
+                        <div class="modal-detail-item">
+                            <span class="detail-label">Client</span>
+                            <span class="detail-value" id="modalClient"></span>
+                        </div>
+                        <div class="modal-detail-item">
+                            <span class="detail-label">Duration</span>
+                            <span class="detail-value" id="modalDuration"></span>
+                        </div>
+                        <div class="modal-detail-item">
+                            <span class="detail-label">Year</span>
+                            <span class="detail-value" id="modalYear"></span>
+                        </div>
+                    </div>
+
+                    <div class="modal-tech">
+                        <span class="detail-label">Technologies</span>
+                        <div class="modal-tech-tags" id="modalTech"></div>
+                    </div>
+
+                    <div class="modal-links">
+                        <!-- LIVE LINK -->
+                        <a href="#" target="_blank" class="btn btn-primary" id="modalLiveLink">
+                            <span class="btn-text">View Live</span>
+                            <span class="btn-icon"><i class="fas fa-external-link-alt"></i></span>
+                            <div class="btn-glow"></div>
+                        </a>
+                        <a href="#" target="_blank" class="btn btn-secondary" id="modalGithubLink">
+                            <span class="btn-text">Source Code</span>
+                            <span class="btn-icon"><i class="fab fa-github"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- TESTIMONIALS SECTION - Client reviews -->
+    <!-- ============================================= -->
+    <section id="testimonials-section" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Reviews</span>
+                <h2 class="section-title">
+                    Client <span class="gold-text">Testimonials</span>
+                </h2>
+                <p class="section-desc">
+                    What our clients say about working with us.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <!-- YAHAN APNE CLIENT KA NAAM AUR REVIEW PASTE KARO -->
+                <div class="testimonial-card">
+                    <div class="tc-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="tc-text">
+                        "ARUSAID transformed our restaurant's digital presence completely. 
+                        The digital menu is beautiful and our customers love scanning the 
+                        QR code. Best investment we made for our business!"
+                    </p>
+                    <div class="tc-author">
+                        <div class="tc-avatar">
+                            <!-- YAHAN CLIENT KI PHOTO DALO YA INITIALS USE KARO -->
+                            <span>AK</span>
+                        </div>
+                        <div class="tc-author-info">
+                            <!-- YAHAN CLIENT KA NAAM PASTE KARO -->
+                            <span class="tc-name">Ahmad Khan</span>
+                            <span class="tc-role">Restaurant Owner</span>
+                        </div>
+                    </div>
+                    <div class="tc-quote-mark">"</div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="tc-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="tc-text">
+                        "The quality of work is outstanding. Our website looks modern 
+                        and professional. The QR menu system saved us so much on 
+                        printing costs. Highly recommend ARUSAID!"
+                    </p>
+                    <div class="tc-author">
+                        <div class="tc-avatar">
+                            <span>SR</span>
+                        </div>
+                        <div class="tc-author-info">
+                            <span class="tc-name">Sarah Rehman</span>
+                            <span class="tc-role">Cafe Owner</span>
+                        </div>
+                    </div>
+                    <div class="tc-quote-mark">"</div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="tc-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="tc-text">
+                        "Working with Usaid was a great experience. He understood our 
+                        brand vision and delivered a website that exceeded our expectations. 
+                        The attention to detail is remarkable."
+                    </p>
+                    <div class="tc-author">
+                        <div class="tc-avatar">
+                            <span>MH</span>
+                        </div>
+                        <div class="tc-author-info">
+                            <span class="tc-name">Muhammad Hassan</span>
+                            <span class="tc-role">Business Owner</span>
+                        </div>
+                    </div>
+                    <div class="tc-quote-mark">"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- CTA SECTION -->
+    <!-- ============================================= -->
+    <section id="cta-section" class="section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">
+                    Want Your Project 
+                    <span class="gold-text">Here</span>?
+                </h2>
+                <p class="cta-desc">
+                    Let's create something amazing together. 
+                    Your project could be our next showcase.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">
+                        <span class="btn-text">Start Your Project</span>
+                        <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                        <div class="btn-glow"></div>
+                    </a>
+                    <a href="services.html" class="btn btn-secondary btn-large">
+                        <span class="btn-text">Our Services</span>
+                        <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- FOOTER -->
+    <!-- ============================================= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-ar">AR</span><span class="logo-usaid">USAID</span>
+                    </div>
+                    <p class="footer-desc">
+                        Pioneering the future of Augmented Reality.
+                        Building immersive digital experiences that
+                        transform businesses worldwide.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="ar-demo.html">AR Demo</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Restaurant Websites</a></li>
+                        <li><a href="services.html">Digital Menu Design</a></li>
+                        <li><a href="services.html">AR Solutions</a></li>
+                        <li><a href="services.html">3D Store Builder</a></li>
+                        <li><a href="services.html">Shopify Setup</a></li>
+                        <li><a href="services.html">Brand Building</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Get in Touch</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:arusaid@gmail.com">arusaid@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <!-- YAHAN APNA PHONE NUMBER -->
+                            <a href="tel:+92XXXXXXXXXX">+92 XXX XXXXXXX</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Pakistan</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-line"></div>
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 ARUSAID. All Rights Reserved.</p>
+                    <p>Crafted with <i class="fas fa-heart gold-text"></i> by Muhammad Usaid</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/portfolio.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | ARUSAID - Muhammad Usaid</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome - Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- About page specific CSS -->
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+    <!-- ============================================= -->
+    <!-- CUSTOM CURSOR -->
+    <!-- ============================================= -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- ============================================= -->
+    <!-- PRELOADER -->
+    <!-- ============================================= -->
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="loader-logo">ARUSAID</div>
+            <div class="loader-tagline">Loading Profile...</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <div class="loader-percent">0%</div>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- NAVIGATION BAR -->
+    <!-- ============================================= -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <span class="logo-ar">AR</span><span class="logo-usaid">USAID</span>
+                </a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link" data-text="Home">Home</a></li>
+                <li><a href="about.html" class="nav-link active" data-text="About">About</a></li>
+                <li><a href="services.html" class="nav-link" data-text="Services">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link" data-text="Portfolio">Portfolio</a></li>
+                <li><a href="ar-demo.html" class="nav-link" data-text="AR Demo">AR Demo</a></li>
+                <li><a href="contact.html" class="nav-link" data-text="Contact">Contact</a></li>
+            </ul>
+
+            <a href="contact.html" class="nav-cta">
+                <span>Let's Build</span>
+                <i class="fas fa-rocket"></i>
+            </a>
+
+            <div class="hamburger" id="hamburger">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-links">
+                <li><a href="index.html" class="mobile-link">Home</a></li>
+                <li><a href="about.html" class="mobile-link active">About</a></li>
+                <li><a href="services.html" class="mobile-link">Services</a></li>
+                <li><a href="portfolio.html" class="mobile-link">Portfolio</a></li>
+                <li><a href="ar-demo.html" class="mobile-link">AR Demo</a></li>
+                <li><a href="contact.html" class="mobile-link">Contact</a></li>
+            </ul>
+            <div class="mobile-social">
+                <!-- YAHAN APNE SOCIAL MEDIA LINKS PASTE KARO -->
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================= -->
+    <!-- ABOUT HERO SECTION - Page ka top section -->
+    <!-- ============================================= -->
+    <section id="about-hero">
+        <!-- 3D background canvas -->
+        <canvas id="aboutHeroCanvas"></canvas>
+
+        <!-- Floating particles -->
+        <div class="about-particles" id="aboutParticles"></div>
+
+        <!-- Hero content -->
+        <div class="about-hero-content">
+            <div class="about-hero-subtitle">
+                <span class="line-decoration"></span>
+                <span class="subtitle-text">Get to Know</span>
+                <span class="line-decoration"></span>
+            </div>
+
+            <h1 class="about-hero-title">
+                <span class="title-line">
+                    <span class="char-wrap" data-text="ABOUT">ABOUT</span>
+                </span>
+                <span class="title-line">
+                    <span class="char-wrap gold-text" data-text="ARUSAID">ARUSAID</span>
+                </span>
+            </h1>
+
+            <p class="about-hero-desc">
+                The story behind the vision. The mission that drives us.
+                The future we're building.
+            </p>
+
+            <!-- Breadcrumb navigation -->
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">About</span>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- INTRODUCTION SECTION - Usaid ka intro -->
+    <!-- ============================================= -->
+    <section id="intro-section" class="section">
+        <div class="container">
+            <div class="intro-grid">
+
+                <!-- Left side - Profile image/3D avatar -->
+                <div class="intro-visual">
+                    <div class="profile-frame">
+                        <!-- 3D canvas profile ke peeche -->
+                        <canvas id="profileCanvas"></canvas>
+
+                        <!-- Profile image ke liye -->
+                        <div class="profile-image-container">
+                            <!-- YAHAN APNI PROFILE PHOTO DALNA -->
+                            <!-- assets/images/profile.jpg naam se save karo -->
+                            <img src="assets/images/profile.jpg" alt="Muhammad Usaid" class="profile-img">
+
+                            <!-- Agar photo nahi hai to ye placeholder dikhega -->
+                            <div class="profile-placeholder">
+                                <i class="fas fa-user"></i>
+                                <span>MU</span>
+                            </div>
+                        </div>
+
+                        <!-- Floating badges around profile -->
+                        <div class="floating-badge badge-1">
+                            <i class="fas fa-vr-cardboard"></i>
+                            <span>AR Expert</span>
+                        </div>
+                        <div class="floating-badge badge-2">
+                            <i class="fas fa-cube"></i>
+                            <span>3D Creator</span>
+                        </div>
+                        <div class="floating-badge badge-3">
+                            <i class="fas fa-code"></i>
+                            <span>Developer</span>
+                        </div>
+                        <div class="floating-badge badge-4">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Designer</span>
+                        </div>
+                    </div>
+
+                    <!-- Status indicator -->
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Available for Projects</span>
+                    </div>
+                </div>
+
+                <!-- Right side - Introduction text -->
+                <div class="intro-content">
+                    <span class="section-tag">Introduction</span>
+
+                    <h2 class="intro-name">
+                        I'm <span class="gold-text">Muhammad Usaid</span>
+                    </h2>
+
+                    <div class="intro-roles">
+                        <!-- Typing effect wale roles -->
+                        <span class="role-prefix">I am a</span>
+                        <span class="role-text" id="typingRole"></span>
+                        <span class="typing-cursor">|</span>
+                    </div>
+
+                    <div class="intro-bio">
+                        <p>
+                            A visionary tech entrepreneur and AR pioneer on a relentless
+                            mission to become the <strong class="gold-text">King of Augmented Reality</strong>.
+                            With a deep passion for merging the digital and physical worlds,
+                            I'm building ARUSAID — a platform destined to reshape how
+                            businesses interact with reality.
+                        </p>
+                        <p>
+                            From crafting stunning digital menus for restaurants to developing
+                            immersive 3D experiences, every project is a stepping stone
+                            toward a future where the metaverse isn't just a concept —
+                            it's the standard.
+                        </p>
+                        <p>
+                            My vision? To build an ecosystem so powerful that global giants
+                            like <strong>Amazon</strong>, <strong>Alibaba</strong>, and
+                            <strong>Shopify</strong> will want to merge into our
+                            <span class="gold-text">3D metaverse platform</span>.
+                        </p>
+                    </div>
+
+                    <!-- Quick info cards -->
+                    <div class="quick-info-grid">
+                        <div class="quick-info-card">
+                            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="info-detail">
+                                <span class="info-label">Location</span>
+                                <!-- YAHAN APNA CITY/COUNTRY PASTE KARO -->
+                                <span class="info-value">Pakistan</span>
+                            </div>
+                        </div>
+                        <div class="quick-info-card">
+                            <div class="info-icon"><i class="fas fa-briefcase"></i></div>
+                            <div class="info-detail">
+                                <span class="info-label">Experience</span>
+                                <span class="info-value">3+ Years</span>
+                            </div>
+                        </div>
+                        <div class="quick-info-card">
+                            <div class="info-icon"><i class="fas fa-project-diagram"></i></div>
+                            <div class="info-detail">
+                                <span class="info-label">Projects</span>
+                                <span class="info-value">50+ Done</span>
+                            </div>
+                        </div>
+                        <div class="quick-info-card">
+                            <div class="info-icon"><i class="fas fa-utensils"></i></div>
+                            <div class="info-detail">
+                                <span class="info-label">Restaurants</span>
+                                <span class="info-value">11+ Menus</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Download CV / Contact buttons -->
+                    <div class="intro-buttons">
+                        <!-- YAHAN APNI CV/RESUME KI LINK DALNA -->
+                        <!-- assets/Muhammad-Usaid-CV.pdf naam se save karo -->
+                        <a href="assets/Muhammad-Usaid-CV.pdf" download class="btn btn-primary">
+                            <span class="btn-text">Download CV</span>
+                            <span class="btn-icon"><i class="fas fa-download"></i></span>
+                            <div class="btn-glow"></div>
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">
+                            <span class="btn-text">Hire Me</span>
+                            <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- MISSION & VISION SECTION -->
+    <!-- ============================================= -->
+    <section id="mission-section" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Purpose</span>
+                <h2 class="section-title">
+                    Mission & <span class="gold-text">Vision</span>
+                </h2>
+            </div>
+
+            <div class="mission-grid">
+                <!-- Mission Card -->
+                <div class="mission-card">
+                    <div class="mission-icon-wrap">
+                        <div class="mission-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="mission-ring"></div>
+                    </div>
+                    <h3 class="mission-title">Our Mission</h3>
+                    <p class="mission-text">
+                        To revolutionize the digital landscape by making Augmented Reality
+                        accessible to every business. We believe that AR isn't just
+                        technology — it's the next evolution of human-digital interaction.
+                        Our mission is to empower brands with immersive 3D experiences
+                        that drive engagement, sales, and unforgettable customer journeys.
+                    </p>
+                    <div class="mission-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Make AR accessible for all businesses</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Bridge the gap between reality and digital</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Empower brands with 3D experiences</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vision Card -->
+                <div class="mission-card vision-card">
+                    <div class="mission-icon-wrap">
+                        <div class="mission-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="mission-ring"></div>
+                    </div>
+                    <h3 class="mission-title">Our Vision</h3>
+                    <p class="mission-text">
+                        To become the undisputed king of Augmented Reality and build
+                        a metaverse-ready platform where the world's largest companies
+                        — from Amazon to Alibaba — integrate their businesses into our
+                        3D ecosystem. We envision a future where shopping, fashion,
+                        software, and every industry operates through AR — and ARUSAID
+                        leads that revolution.
+                    </p>
+                    <div class="mission-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Become the #1 AR platform globally</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Build a metaverse-ready ecosystem</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Partner with Fortune 500 companies</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Big quote -->
+            <div class="vision-quote">
+                <div class="quote-mark">"</div>
+                <p class="quote-text">
+                    The future isn't about screens — it's about experiences.
+                    ARUSAID is building that future, one augmented reality at a time.
+                </p>
+                <div class="quote-author">
+                    <span class="author-name">— Muhammad Usaid</span>
+                    <span class="author-title">Founder, ARUSAID</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SKILLS SECTION - Technical skills -->
+    <!-- ============================================= -->
+    <section id="skills-section" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Expertise</span>
+                <h2 class="section-title">
+                    Skills & <span class="gold-text">Technologies</span>
+                </h2>
+                <p class="section-desc">
+                    A diverse skill set built for the future of digital experiences.
+                </p>
+            </div>
+
+            <div class="skills-container">
+                <!-- Skills Category 1 - Development -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="category-title">Development</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">HTML / CSS</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Three.js / WebGL</span>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">WebXR / AR.js</span>
+                                <span class="skill-percent">65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="65"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Category 2 - Design -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="category-title">Design & 3D</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">UI/UX Design</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">3D Modeling</span>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Menu Design</span>
+                                <span class="skill-percent">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Brand Identity</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Category 3 - Business -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="category-title">Business & Marketing</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Digital Marketing</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Shopify Management</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Brand Strategy</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Content Creation</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack Icons -->
+            <div class="tech-stack">
+                <h3 class="tech-title">Tech Stack</h3>
+                <div class="tech-icons">
+                    <div class="tech-icon-item" data-tooltip="HTML5">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <div class="tech-icon-item" data-tooltip="CSS3">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <div class="tech-icon-item" data-tooltip="JavaScript">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <div class="tech-icon-item" data-tooltip="Three.js">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="tech-icon-item" data-tooltip="Shopify">
+                        <i class="fab fa-shopify"></i>
+                    </div>
+                    <div class="tech-icon-item" data-tooltip="GitHub">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="tech-icon-item" data-tooltip="Figma">
+                        <i class="fab fa-figma"></i>
+                    </div>
+                    <div class="tech-icon-item" data-tooltip="Google">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="tech-icon-item" data-tooltip="WordPress">
+                        <i class="fab fa-wordpress"></i>
+                    </div>
+                    <div class="tech-icon-item" data-tooltip="AR/VR">
+                        <i class="fas fa-vr-cardboard"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- JOURNEY TIMELINE - Tera journey ab tak -->
+    <!-- ============================================= -->
+    <section id="journey-section" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Journey</span>
+                <h2 class="section-title">
+                    My <span class="gold-text">Timeline</span>
+                </h2>
+                <p class="section-desc">
+                    Every milestone, every achievement — the path to AR dominance.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <!-- Timeline line -->
+                <div class="timeline-line">
+                    <div class="timeline-progress" id="timelineProgress"></div>
+                </div>
+
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item left">
+                    <div class="timeline-dot">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <!-- YAHAN APNI START DATE DALO -->
+                            <span>2022</span>
+                        </div>
+                        <h3 class="timeline-title">The Beginning</h3>
+                        <p class="timeline-desc">
+                            Started the journey into web development and digital design.
+                            Built the first restaurant website and discovered the power
+                            of creating digital experiences.
+                        </p>
+                        <div class="timeline-tags">
+                            <span>Web Development</span>
+                            <span>Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item right">
+                    <div class="timeline-dot">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2022 - 2023</span>
+                        </div>
+                        <h3 class="timeline-title">Restaurant Digital Menus</h3>
+                        <p class="timeline-desc">
+                            Developed and delivered 11+ digital menu systems with QR
+                            scanner integration for restaurants. Built a reputation
+                            for quality digital menu design.
+                        </p>
+                        <div class="timeline-tags">
+                            <span>QR Systems</span>
+                            <span>Menu Design</span>
+                            <span>11+ Clients</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item left">
+                    <div class="timeline-dot">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2023</span>
+                        </div>
+                        <h3 class="timeline-title">Entering 3D & AR World</h3>
+                        <p class="timeline-desc">
+                            Discovered Three.js and WebXR. Started experimenting with
+                            3D web experiences and Augmented Reality. The vision for
+                            ARUSAID began to take shape.
+                        </p>
+                        <div class="timeline-tags">
+                            <span>Three.js</span>
+                            <span>AR/VR</span>
+                            <span>3D Modeling</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item right">
+                    <div class="timeline-dot">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2024</span>
+                        </div>
+                        <h3 class="timeline-title">ARUSAID Brand Launch</h3>
+                        <p class="timeline-desc">
+                            Officially launched ARUSAID as a B2B platform for
+                            Augmented Reality solutions. Expanded services to include
+                            Shopify setup, brand building, and 3D store creation.
+                        </p>
+                        <div class="timeline-tags">
+                            <span>B2B Platform</span>
+                            <span>Brand Launch</span>
+                            <span>Expansion</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5 - Future -->
+                <div class="timeline-item left">
+                    <div class="timeline-dot future-dot">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="timeline-card future-card">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2025 & Beyond</span>
+                        </div>
+                        <h3 class="timeline-title">The Metaverse Vision</h3>
+                        <p class="timeline-desc">
+                            Building the future — a full metaverse platform where
+                            global companies merge their businesses into our 3D
+                            ecosystem. The age of Augmented Reality commerce begins.
+                        </p>
+                        <div class="timeline-tags">
+                            <span>Metaverse</span>
+                            <span>Global Platform</span>
+                            <span>AR Commerce</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- WHY CHOOSE US SECTION -->
+    <!-- ============================================= -->
+    <section id="why-section" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Why Us</span>
+                <h2 class="section-title">
+                    Why Choose <span class="gold-text">ARUSAID</span>
+                </h2>
+                <p class="section-desc">
+                    What makes us different from the rest.
+                </p>
+            </div>
+
+            <div class="why-grid">
+                <!-- Why Card 1 -->
+                <div class="why-card">
+                    <div class="why-number">01</div>
+                    <div class="why-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="why-title">Future-Focused</h3>
+                    <p class="why-desc">
+                        We don't just build for today — we build for the metaverse.
+                        Every project is designed to be future-proof and AR-ready.
+                    </p>
+                </div>
+
+                <!-- Why Card 2 -->
+                <div class="why-card">
+                    <div class="why-number">02</div>
+                    <div class="why-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="why-title">End-to-End Solutions</h3>
+                    <p class="why-desc">
+                        From brand identity to 3D stores — we handle everything.
+                        One team, one vision, complete digital transformation.
+                    </p>
+                </div>
+
+                <!-- Why Card 3 -->
+                <div class="why-card">
+                    <div class="why-number">03</div>
+                    <div class="why-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="why-title">Proven Results</h3>
+                    <p class="why-desc">
+                        11+ successful restaurant digitizations and 50+ projects
+                        delivered. Our track record speaks for itself.
+                    </p>
+                </div>
+
+                <!-- Why Card 4 -->
+                <div class="why-card">
+                    <div class="why-number">04</div>
+                    <div class="why-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="why-title">Cutting-Edge Tech</h3>
+                    <p class="why-desc">
+                        We use the latest in Three.js, WebXR, and AR technologies
+                        to deliver experiences that wow users and drive business.
+                    </p>
+                </div>
+
+                <!-- Why Card 5 -->
+                <div class="why-card">
+                    <div class="why-number">05</div>
+                    <div class="why-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="why-title">Passion-Driven</h3>
+                    <p class="why-desc">
+                        This isn't just business — it's a mission. Every pixel,
+                        every polygon, every line of code is crafted with passion.
+                    </p>
+                </div>
+
+                <!-- Why Card 6 -->
+                <div class="why-card">
+                    <div class="why-number">06</div>
+                    <div class="why-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="why-title">Global Vision</h3>
+                    <p class="why-desc">
+                        Built locally, designed globally. Our solutions are made
+                        to scale from local restaurants to global enterprises.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- CTA SECTION - Contact push -->
+    <!-- ============================================= -->
+    <section id="cta-section" class="section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">
+                    Let's Build Something
+                    <span class="gold-text">Extraordinary</span>
+                </h2>
+                <p class="cta-desc">
+                    Ready to transform your business with AR and 3D?
+                    Let's talk about your next project.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">
+                        <span class="btn-text">Start a Project</span>
+                        <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                        <div class="btn-glow"></div>
+                    </a>
+                    <a href="portfolio.html" class="btn btn-secondary btn-large">
+                        <span class="btn-text">See My Work</span>
+                        <span class="btn-icon"><i class="fas fa-eye"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- FOOTER -->
+    <!-- ============================================= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-ar">AR</span><span class="logo-usaid">USAID</span>
+                    </div>
+                    <p class="footer-desc">
+                        Pioneering the future of Augmented Reality.
+                        Building immersive digital experiences that
+                        transform businesses worldwide.
+                    </p>
+                    <div class="footer-social">
+                        <!-- YAHAN APNE SOCIAL MEDIA LINKS PASTE KARO -->
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="ar-demo.html">AR Demo</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Restaurant Websites</a></li>
+                        <li><a href="services.html">Digital Menu Design</a></li>
+                        <li><a href="services.html">AR Solutions</a></li>
+                        <li><a href="services.html">3D Store Builder</a></li>
+                        <li><a href="services.html">Shopify Setup</a></li>
+                        <li><a href="services.html">Brand Building</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Get in Touch</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:arusaid@gmail.com">arusaid@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <!-- YAHAN APNA PHONE NUMBER PASTE KARO -->
+                            <a href="tel:+92XXXXXXXXXX">+92 XXX XXXXXXX</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Pakistan</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-line"></div>
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 ARUSAID. All Rights Reserved.</p>
+                    <p>Crafted with <i class="fas fa-heart gold-text"></i> by Muhammad Usaid</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/about.js"></script>
+
+</body>
+</html>
