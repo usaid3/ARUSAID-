@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | ARUSAID - AR & Digital Solutions</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Services page CSS -->
+    <link rel="stylesheet" href="css/services.css">
+</head>
+<body>
+
+    <!-- ============================================= -->
+    <!-- CUSTOM CURSOR -->
+    <!-- ============================================= -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- ============================================= -->
+    <!-- PRELOADER -->
+    <!-- ============================================= -->
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="loader-logo">ARUSAID</div>
+            <div class="loader-tagline">Loading Services...</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <div class="loader-percent">0%</div>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- NAVIGATION BAR -->
+    <!-- ============================================= -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <span class="logo-ar">AR</span><span class="logo-usaid">USAID</span>
+                </a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link" data-text="Home">Home</a></li>
+                <li><a href="about.html" class="nav-link" data-text="About">About</a></li>
+                <li><a href="services.html" class="nav-link active" data-text="Services">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link" data-text="Portfolio">Portfolio</a></li>
+                <li><a href="ar-demo.html" class="nav-link" data-text="AR Demo">AR Demo</a></li>
+                <li><a href="contact.html" class="nav-link" data-text="Contact">Contact</a></li>
+            </ul>
+
+            <a href="contact.html" class="nav-cta">
+                <span>Let's Build</span>
+                <i class="fas fa-rocket"></i>
+            </a>
+
+            <div class="hamburger" id="hamburger">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-links">
+                <li><a href="index.html" class="mobile-link">Home</a></li>
+                <li><a href="about.html" class="mobile-link">About</a></li>
+                <li><a href="services.html" class="mobile-link active">Services</a></li>
+                <li><a href="portfolio.html" class="mobile-link">Portfolio</a></li>
+                <li><a href="ar-demo.html" class="mobile-link">AR Demo</a></li>
+                <li><a href="contact.html" class="mobile-link">Contact</a></li>
+            </ul>
+            <div class="mobile-social">
+                <!-- YAHAN APNE SOCIAL MEDIA LINKS PASTE KARO -->
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================= -->
+    <!-- SERVICES HERO - Top banner -->
+    <!-- ============================================= -->
+    <section id="services-hero">
+        <!-- 3D background -->
+        <canvas id="servicesHeroCanvas"></canvas>
+
+        <!-- Particles -->
+        <div class="services-particles" id="servicesParticles"></div>
+
+        <!-- Content -->
+        <div class="services-hero-content">
+            <div class="hero-subtitle">
+                <span class="line-decoration"></span>
+                <span class="subtitle-text">What We Offer</span>
+                <span class="line-decoration"></span>
+            </div>
+
+            <h1 class="services-hero-title">
+                <span class="title-line">
+                    <span class="char-wrap" data-text="OUR">OUR</span>
+                </span>
+                <span class="title-line">
+                    <span class="char-wrap gold-text" data-text="SERVICES">SERVICES</span>
+                </span>
+            </h1>
+
+            <p class="services-hero-desc">
+                From digital menus to metaverse-ready 3D experiences — 
+                we offer end-to-end solutions that transform businesses.
+            </p>
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Services</span>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SERVICES OVERVIEW - Quick numbers -->
+    <!-- ============================================= -->
+    <section id="services-overview" class="section">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="overview-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div class="overview-number" data-count="11">0</div>
+                    <div class="overview-label">Services Offered</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="overview-number" data-count="50">0</div>
+                    <div class="overview-label">Happy Clients</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="overview-number" data-count="75">0</div>
+                    <div class="overview-label">Projects Completed</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="overview-number" data-count="100">0</div>
+                    <div class="overview-label">Client Satisfaction %</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- ALL SERVICES - Sari 11 services detail mein -->
+    <!-- ============================================= -->
+    <section id="all-services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Solutions</span>
+                <h2 class="section-title">
+                    Complete <span class="gold-text">Service Suite</span>
+                </h2>
+                <p class="section-desc">
+                    Every service designed to take your business from ordinary 
+                    to extraordinary. Choose what fits your needs.
+                </p>
+            </div>
+
+            <!-- Service Filter Buttons -->
+            <div class="service-filters">
+                <button class="filter-btn active" data-filter="all">All Services</button>
+                <button class="filter-btn" data-filter="web">Web & Digital</button>
+                <button class="filter-btn" data-filter="ar">AR & 3D</button>
+                <button class="filter-btn" data-filter="brand">Branding</button>
+                <button class="filter-btn" data-filter="marketing">Marketing</button>
+            </div>
+
+            <!-- Services Detail Grid -->
+            <div class="services-detail-grid">
+
+                <!-- ===== SERVICE 1: Restaurant Websites ===== -->
+                <div class="service-detail-card" data-category="web">
+                    <div class="sdc-header">
+                        <div class="sdc-icon-wrap">
+                            <div class="sdc-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="sdc-icon-ring"></div>
+                        </div>
+                        <div class="sdc-number">01</div>
+                    </div>
+                    <div class="sdc-content">
+                        <h3 class="sdc-title">Restaurant Websites</h3>
+                        <p class="sdc-desc">
+                            Custom-built, stunning websites specifically designed for 
+                            restaurants, cafes, and food businesses. Mobile-first design 
+                            with online ordering capabilities, reservation systems, and 
+                            beautiful food galleries that make customers hungry.
+                        </p>
+                        <div class="sdc-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Responsive Design</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Online Ordering</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Reservation System</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Food Gallery</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Google Maps Integration</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>SEO Optimized</span>
+                            </div>
+                        </div>
+                        <div class="sdc-badge">
+                            <i class="fas fa-fire"></i>
+                            <span>Most Popular</span>
+                        </div>
+                    </div>
+                    <div class="sdc-footer">
+                        <a href="contact.html" class="sdc-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <!-- Hover glow effect -->
+                    <div class="sdc-glow"></div>
+                </div>
+
+                <!-- ===== SERVICE 2: Digital Menu Design ===== -->
+                <div class="service-detail-card" data-category="web">
+                    <div class="sdc-header">
+                        <div class="sdc-icon-wrap">
+                            <div class="sdc-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="sdc-icon-ring"></div>
+                        </div>
+                        <div class="sdc-number">02</div>
+                    </div>
+                    <div class="sdc-content">
+                        <h3 class="sdc-title">Digital Menu Design</h3>
+                        <p class="sdc-desc">
+                            Beautiful, interactive digital menus that replace boring 
+                            paper menus. Customers scan a QR code and get a stunning 
+                            visual menu on their phone. Easy to update, no printing 
+                            costs, always fresh.
+                        </p>
+                        <div class="sdc-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Interactive UI</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Category Filtering</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Price Management</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Food Images</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Multi-language</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Easy Updates</span>
+                            </div>
+                        </div>
+                        <div class="sdc-badge badge-green">
+                            <i class="fas fa-leaf"></i>
+                            <span>Eco-Friendly</span>
+                        </div>
+                    </div>
+                    <div class="sdc-footer">
+                        <a href="contact.html" class="sdc-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="sdc-glow"></div>
+                </div>
+
+                <!-- ===== SERVICE 3: QR Scanner System ===== -->
+                <div class="service-detail-card" data-category="web">
+                    <div class="sdc-header">
+                        <div class="sdc-icon-wrap">
+                            <div class="sdc-icon">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                            <div class="sdc-icon-ring"></div>
+                        </div>
+                        <div class="sdc-number">03</div>
+                    </div>
+                    <div class="sdc-content">
+                        <h3 class="sdc-title">QR Scanner System</h3>
+                        <p class="sdc-desc">
+                            Complete QR code ecosystem for your business. Custom-designed 
+                            QR codes that match your brand, linked to digital menus, 
+                            payment systems, feedback forms, and promotional content. 
+                            Smart analytics included.
+                        </p>
+                        <div class="sdc-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Custom QR Design</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Scan Analytics</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Dynamic Links</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Table-wise Codes</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Brand Matching</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Print Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sdc-footer">
+                        <a href="contact.html" class="sdc-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="sdc-glow"></div>
+                </div>
+
+                <!-- ===== SERVICE 4: AR Solutions ===== -->
+                <div class="service-detail-card" data-category="ar">
+                    <div class="sdc-header">
+                        <div class="sdc-icon-wrap">
+                            <div class="sdc-icon sdc-icon-purple">
+                                <i class="fas fa-vr-cardboard"></i>
+                            </div>
+                            <div class="sdc-icon-ring ring-purple"></div>
+                        </div>
+                        <div class="sdc-number">04</div>
+                    </div>
+                    <div class="sdc-content">
+                        <h3 class="sdc-title">AR Solutions</h3>
+                        <p class="sdc-desc">
+                            Cutting-edge Augmented Reality experiences that bring your 
+                            products to life. Customers can see products in their real 
+                            environment through their phone camera. Perfect for furniture, 
+                            fashion, food, and retail industries.
+                        </p>
+                        <div class="sdc-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>WebAR (No App Needed)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Product Visualization</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Try Before Buy</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>3D Model Integration</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Cross-platform</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Real-time Rendering</span>
+                            </div>
+                        </div>
+                        <div class="sdc-badge badge-purple">
+                            <i class="fas fa-crown"></i>
+                            <span>Premium</span>
+                        </div>
+                    </div>
+                    <div class="sdc-footer">
+                        <a href="contact.html" class="sdc-btn sdc-btn-purple">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="sdc-glow glow-purple"></div>
+                </div>
+
+                <!-- ===== SERVICE 5: Web Services on Demand ===== -->
+                <div class="service-detail-card" data-category="web">
+                    <div class="sdc-header">
+                        <div class="sdc-icon-wrap">
+                            <div class="sdc-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="sdc-icon-ring"></div>
+                        </div>
+                        <div class="sdc-number">05</div>
+                    </div>
+                    <div class="sdc-content">
+                        <h3 class="sdc-title">Web Services on Demand</h3>
+                        <p class="sdc-desc">
+                            Custom web development for any business need. Whether you 
+                            need a landing page, portfolio, e-commerce site, or a 
+                            complex web application — we build it from scratch with 
+                            modern technologies and stunning design.
+                        </p>
+                        <div class="sdc-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Custom Development</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Modern Tech Stack</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Responsive Design</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Fast Loading</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>SEO Ready</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Maintenance Support</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sdc-footer">
+                        <a href="contact.html" class="sdc-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="sdc-glow"></div>
+                </div>
+
+                <!-- ===== SERVICE 6: 3D Store Builder ===== -->
+                <div class="service-detail-card" data-category="ar">
+                    <div class="sdc-header">
+                        <div class="sdc-icon-wrap">
+                            <div class="sdc-icon sdc-icon-purple">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <div class="sdc-icon-ring ring-purple"></div>
+                        </div>
+                        <div class="sdc-number">06</div>
+                    </div>
+                    <div class="sdc-content">
+                        <h3 class="sdc-title">3D Store Builder</h3>
+                        <p class="sdc-desc">
+                            Create a virtual 3D store where customers can walk around 
+                            and browse products in an immersive environment. The future 
+                            of online shopping. Metaverse-ready virtual storefronts 
+                            that give customers a real store experience from home.
+                        </p>
+                        <div class="sdc-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>3D Virtual Store</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Product Placement</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Walk-through Experience</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Interactive Shopping</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Metaverse Ready</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Analytics Dashboard</span>
+                            </div>
+                        </div>
+                        <div class="sdc-badge badge-purple">
+                            <i class="fas fa-gem"></i>
+                            <span>Futuristic</span>
+                        </div>
+                    </div>
+                    <div class="sdc-footer">
+                        <a href="contact.html" class="sdc-btn sdc-btn-purple">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="sdc-glow glow-purple"></div>
+                </div>
+
+                <!-- ===== SERVICE 7: Shopify Store Setup ===== -->
+                <div class="service-detail-card" data-category="web">
+                    <div class="sdc-header">
+                        <div class="sdc-icon-wrap">
+                            <div class="sdc-icon">
+                                <i class="fab fa-shopify"></i>
+                            </div>
+                            <div class="sdc-icon-ring"></div>
+                        </div>
+                        <div class="sdc-number">07</div>
+                    </div>
+                    <div class="sdc-content">
+                        <h3 class="sdc-title">Shopify Store Setup</h3>
+                        <p class="sdc-desc">
+                            Complete Shopify store setup from A to Z. Custom theme 
+                            design, product listing, payment integration, shipping 
+                            setup, and everything you need to start selling online. 
+                            Ready to launch in days, not months.
+                        </p>
+                        <div class="sdc-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Custom Theme</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Product Upload</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Payment Gateway</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Shipping Setup</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>App Integration</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Training Included</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sdc-footer">
+                        <a href="contact.html" class="sdc-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="sdc-glow"></div>
+                </div>
+
+                <!-- ===== SERVICE 8: Futuristic Marketing ===== -->
+                <div class="service-detail-card" data-category="marketing">
+                    <div class="sdc-header">
+                        <div class="sdc-icon-wrap">
+                            <div class="sdc-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="sdc-icon-ring"></div>
+                        </div>
+                        <div class="sdc-number">08</div>
+                    </div>
+                    <div class="sdc-content">
+                        <h3 class="sdc-title">Futuristic Marketing</h3>
+                        <p class="sdc-desc">
+                            Next-generation marketing strategies that use AR, 3D content, 
+                            and immersive experiences to captivate audiences. Stand out 
+                            from competition with marketing that feels like the future. 
+                            Social media, content strategy, and viral campaigns.
+                        </p>
+                        <div class="sdc-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>AR Marketing Campaigns</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>3D Content Creation</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Social Media Strategy</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Viral Content</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Performance Analytics</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>ROI Focused</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sdc-footer">
+                        <a href="contact.html" class="sdc-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="sdc-glow"></div>
+                </div>
+
+                <!-- ===== SERVICE 9: Documentary for Brands ===== -->
+                <div class="service-detail-card" data-category="brand">
+                    <div class="sdc-header">
+                        <div class="sdc-icon-wrap">
+                            <div class="sdc-icon">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <div class="sdc-icon-ring"></div>
+                        </div>
+                        <div class="sdc-number">09</div>
+                    </div>
+                    <div class="sdc-content">
+                        <h3 class="sdc-title">Documentary for Brands</h3>
+                        <p class="sdc-desc">
+                            Tell your brand story through cinematic documentaries. 
+                            Professional video production that captures the essence 
+                            of your brand, your journey, and your vision. Perfect for 
+                            social media, websites, and presentations.
+                        </p>
+                        <div class="sdc-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Brand Storytelling</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Cinematic Quality</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Script Writing</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Professional Editing</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Motion Graphics</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Multi-platform Format</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sdc-footer">
+                        <a href="contact.html" class="sdc-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="sdc-glow"></div>
+                </div>
+
+                <!-- ===== SERVICE 10: 3D Modeling ===== -->
+                <div class="service-detail-card" data-category="ar">
+                    <div class="sdc-header">
+                        <div class="sdc-icon-wrap">
+                            <div class="sdc-icon sdc-icon-purple">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <div class="sdc-icon-ring ring-purple"></div>
+                        </div>
+                        <div class="sdc-number">10</div>
+                    </div>
+                    <div class="sdc-content">
+                        <h3 class="sdc-title">3D Modeling</h3>
+                        <p class="sdc-desc">
+                            High-quality 3D models for products, environments, and 
+                            characters. Ready for AR experiences, web integration, 
+                            3D printing, or game engines. We create photorealistic 
+                            or stylized models based on your needs.
+                        </p>
+                        <div class="sdc-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Product Models</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Environment Design</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Texture & Materials</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>AR/Web Optimized</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>GLB/GLTF Export</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Animation Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sdc-footer">
+                        <a href="contact.html" class="sdc-btn sdc-btn-purple">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="sdc-glow glow-purple"></div>
+                </div>
+
+                <!-- ===== SERVICE 11: Brand Build from Scratch ===== -->
+                <div class="service-detail-card" data-category="brand">
+                    <div class="sdc-header">
+                        <div class="sdc-icon-wrap">
+                            <div class="sdc-icon">
+                                <i class="fas fa-pen-nib"></i>
+                            </div>
+                            <div class="sdc-icon-ring"></div>
+                        </div>
+                        <div class="sdc-number">11</div>
+                    </div>
+                    <div class="sdc-content">
+                        <h3 class="sdc-title">Brand Build from Scratch</h3>
+                        <p class="sdc-desc">
+                            Complete brand identity creation — from naming to visual 
+                            identity. Logo design, color palette, typography, brand 
+                            guidelines, social media kits, and everything needed to 
+                            launch a powerful, memorable brand.
+                        </p>
+                        <div class="sdc-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Logo Design</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Color Palette</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Typography System</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Brand Guidelines</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Social Media Kit</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Business Cards</span>
+                            </div>
+                        </div>
+                        <div class="sdc-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Complete Package</span>
+                        </div>
+                    </div>
+                    <div class="sdc-footer">
+                        <a href="contact.html" class="sdc-btn">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="sdc-glow"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- HOW WE WORK - Process section -->
+    <!-- ============================================= -->
+    <section id="process-section" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Process</span>
+                <h2 class="section-title">
+                    How We <span class="gold-text">Work</span>
+                </h2>
+                <p class="section-desc">
+                    A streamlined process designed to deliver results 
+                    efficiently and transparently.
+                </p>
+            </div>
+
+            <div class="process-grid">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-connector"></div>
+                    <div class="step-number-wrap">
+                        <div class="step-number">01</div>
+                        <div class="step-pulse"></div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="step-title">Discovery Call</h3>
+                        <p class="step-desc">
+                            We listen to your needs, understand your business, 
+                            and define the project scope together.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-connector"></div>
+                    <div class="step-number-wrap">
+                        <div class="step-number">02</div>
+                        <div class="step-pulse"></div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <h3 class="step-title">Design & Plan</h3>
+                        <p class="step-desc">
+                            We create wireframes, mockups, and a detailed plan 
+                            for your approval before development.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-connector"></div>
+                    <div class="step-number-wrap">
+                        <div class="step-number">03</div>
+                        <div class="step-pulse"></div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="step-title">Development</h3>
+                        <p class="step-desc">
+                            Our team builds your project with clean code, 
+                            3D elements, and cutting-edge technology.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="step-connector"></div>
+                    <div class="step-number-wrap">
+                        <div class="step-number">04</div>
+                        <div class="step-pulse"></div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <h3 class="step-title">Testing & Review</h3>
+                        <p class="step-desc">
+                            Rigorous testing across devices and browsers. 
+                            Your feedback is incorporated before launch.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="process-step">
+                    <div class="step-number-wrap">
+                        <div class="step-number">05</div>
+                        <div class="step-pulse"></div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="step-title">Launch & Support</h3>
+                        <p class="step-desc">
+                            We launch your project and provide ongoing 
+                            support to ensure everything runs smoothly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- FAQ SECTION - Aksar poochhe jane wale sawal -->
+    <!-- ============================================= -->
+    <section id="faq-section" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">
+                    Frequently Asked <span class="gold-text">Questions</span>
+                </h2>
+                <p class="section-desc">
+                    Got questions? We've got answers. If you don't find 
+                    what you're looking for, feel free to contact us.
+                </p>
+            </div>
+
+            <div class="faq-container">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is the typical project timeline?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            It depends on the project type. A digital menu takes 3-5 days. 
+                            A complete restaurant website takes 1-2 weeks. AR solutions 
+                            and 3D stores can take 2-4 weeks depending on complexity. 
+                            We always provide a clear timeline before starting.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you provide ongoing support after launch?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Yes! We provide post-launch support including bug fixes, 
+                            content updates, and technical assistance. We also offer 
+                            monthly maintenance packages for long-term partnership.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What technologies do you use?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            We use HTML5, CSS3, JavaScript, Three.js for 3D graphics, 
+                            WebXR and AR.js for Augmented Reality, Shopify for e-commerce, 
+                            and various modern tools for design and development. We always 
+                            choose the best tech for your specific project.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I see my project during development?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Absolutely! We believe in transparency. You'll get regular 
+                            updates, preview links, and milestone demos throughout the 
+                            development process. Your feedback is incorporated at every stage.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do I need AR glasses for your AR solutions?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            No! Our AR solutions work through regular smartphone cameras 
+                            using WebAR technology. No app download or special hardware 
+                            needed. Your customers just open a link and experience AR 
+                            directly in their browser.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What industries do you serve?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            We serve restaurants, retail, fashion, e-commerce, real estate, 
+                            education, and any business looking to leverage AR and 3D 
+                            technology. Our solutions are adaptable to any industry.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I get started?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Simple! Click the "Start a Project" button below or visit our 
+                            Contact page. Fill in your details and project requirements. 
+                            We'll get back to you within 24 hours with a free consultation 
+                            and project proposal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- CTA SECTION -->
+    <!-- ============================================= -->
+    <section id="cta-section" class="section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">
+                    Ready to 
+                    <span class="gold-text">Transform</span> 
+                    Your Business?
+                </h2>
+                <p class="cta-desc">
+                    Let's discuss your project and find the perfect 
+                    service combination for your needs.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">
+                        <span class="btn-text">Start a Project</span>
+                        <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                        <div class="btn-glow"></div>
+                    </a>
+                    <a href="portfolio.html" class="btn btn-secondary btn-large">
+                        <span class="btn-text">View Our Work</span>
+                        <span class="btn-icon"><i class="fas fa-eye"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- FOOTER -->
+    <!-- ============================================= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-ar">AR</span><span class="logo-usaid">USAID</span>
+                    </div>
+                    <p class="footer-desc">
+                        Pioneering the future of Augmented Reality.
+                        Building immersive digital experiences that
+                        transform businesses worldwide.
+                    </p>
+                    <div class="footer-social">
+                        <!-- YAHAN APNE SOCIAL MEDIA LINKS PASTE KARO -->
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="ar-demo.html">AR Demo</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Restaurant Websites</a></li>
+                        <li><a href="services.html">Digital Menu Design</a></li>
+                        <li><a href="services.html">AR Solutions</a></li>
+                        <li><a href="services.html">3D Store Builder</a></li>
+                        <li><a href="services.html">Shopify Setup</a></li>
+                        <li><a href="services.html">Brand Building</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Get in Touch</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:arusaid@gmail.com">arusaid@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <!-- YAHAN APNA PHONE NUMBER PASTE KARO -->
+                            <a href="tel:+92XXXXXXXXXX">+92 XXX XXXXXXX</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Pakistan</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-line"></div>
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 ARUSAID. All Rights Reserved.</p>
+                    <p>Crafted with <i class="fas fa-heart gold-text"></i> by Muhammad Usaid</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/services.js"></script>
+
+</body>
+</html>
